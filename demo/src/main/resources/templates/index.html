@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head lang="en" th:replace="fragments/header :: header">
+	<meta charset="UTF-8" />
+	<title>home</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>Trang chủ</title>
+</head>
+
+<body>
+	<!--header-->
+	<div id="header" class="container-fluid">
+		<nav class="navbar navbar-inverse none_nav">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#"><img th:src="@{/Image/icon_logo_shop.png}" height="35px" /></a>
+				</div>
+				<ul class="nav navbar-nav navbar-center">
+					<li class="active"><a href="#">TRANG CHỦ</a></li>
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="">Sản Phẩm <span
+								class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<c:forEach var="danhmuc" items="${listDanhMuc}">
+								<li><a href="<c:url value="
+										/sanpham/${danhmuc.getMadanhmuc()}/${danhmuc.getTendanhmuc()}" />">${danhmuc.getTendanhmuc()}</a>
+								</li>
+								<li role="separator" class="divider"></li>
+							</c:forEach>
+						</ul>
+					</li>
+					<li><a href="#">DỊCH VỤ</a></li>
+					<li><a href="#">LIÊN HỆ</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<div class="khungdangnhap">
+						<div>
+							<c:choose>
+								<c:when test="${chucaidau !=null}">
+									<li><a href="dangnhap/"><span class="circke-avatar">${chucaidau}</span></a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="dangnhap/"><span>Đăng Nhập</span></a></li>
+								</c:otherwise>
+							</c:choose>
+						</div>
+						<div>
+							<li><a href="#"><img th:src="@{/Image/icons8-shopping-cart-60.png}" height="35px" /></a>
+							</li>
+						</div>
+					</div>
+				</ul>
+
+			</div>
+		</nav>
+		<div class="event_header container wow animate__rubberBand" data-wow-duration="2s">
+			<span>Ngày 17/10-23/10/2022</span><br /> <span style="font-size: 50px">Mua 1 Tặng 1</span><br />
+			<button>XEM NGAY</button>
+		</div>
+	</div>
+	<!-- end header -->
+
+	<!-- Show Prosduct-->
+	<div id="title-sanpham" class="container">
+		<span>SẢN PHẨM HOT</span>
+		<div class="row">
+
+			<th:block th:each="product: ${product}">
+				<div class="col-sm-6 col-md-3 sanpham wow animate__backInDown">
+					<img th:src="@{'/Image/sanpham/'+${product.image}}"><br />
+					<span th:text="${product.name}"></span><br />
+					<span style="color: red;" th:text="${product.price}"></span>
+				</div>
+			</th:block>
+
+			<div lang="en" th:replace="fragments/footer :: footer"> </div>
+</body>
+
+</html>
