@@ -14,7 +14,7 @@ public class ProductConvert {
 		dto.setName(product.getName());
 		dto.setImage(product.getImage());
 		dto.setPrice(product.getPrice());
-		
+		dto.setFors(product.getFors());
 		return dto;
 	}
 }

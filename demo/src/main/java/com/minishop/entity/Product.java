@@ -16,9 +16,6 @@ public class Product {
 	@Column(name = "id")
 	private int id;
 
-	@Column(name = "category_id")
-	private int categoryid;
-
 	@Column(name = "name")
 	private String name;
 
@@ -42,13 +39,6 @@ public class Product {
 		this.id = id;
 	}
 
-	public int getCategoryid() {
-		return categoryid;
-	}
-
-	public void setCategoryid(int categoryid) {
-		this.categoryid = categoryid;
-	}
 
 	public String getName() {
 		return name;

@@ -55,27 +55,52 @@
 
 			</div>
 		</nav>
-		<div class="event_header container wow animate__rubberBand" data-wow-duration="2s">
-			<span>Ngày 17/10-23/10/2022</span><br /> <span style="font-size: 50px">Mua 1 Tặng 1</span><br />
-			<button>XEM NGAY</button>
-		</div>
 	</div>
 	<!-- end header -->
 
 	<!-- Show Prosduct-->
-	<div id="title-sanpham" class="container">
-		<span>SẢN PHẨM HOT</span>
+	
+<div class="sanphamhot" ><span>SẢN PHẨM HOT</span></div>
 		<div class="row">
-
+	<div id="title-sanpham" class="container">
 			<th:block th:each="product: ${product}">
+			 <a href="chitiet/${product.id}">	
 				<div class="col-sm-6 col-md-3 sanpham wow animate__backInDown">
 					<img th:src="@{'/Image/sanpham/'+${product.image}}"><br />
 					<span th:text="${product.name}"></span><br />
 					<span style="color: red;" th:text="${product.price}"></span>
 				</div>
+			 </a>	
 			</th:block>
-
-			<div lang="en" th:replace="fragments/footer :: footer"> </div>
+		</div>	
+	</div>	
+<!--end Prosduct-->
+<!--Footer-->
+	 <div id="footer" class="container-fluid">
+		<div class="row">
+			<div class="col-sm-4 col-md-4 wow animate__rubberBand">
+			    <p><span class="title-footer">THÔNG TIN SHOP</span></p><br/>
+			    <span>Yami là một thương hiệu thời trang uy tính, luôn đặt chất lượng sản phẩm tốt nhất cho khách hàng</span>
+ 			</div>
+			<div class="col-sm-4 col-md-4 wow animate__rubberBand">
+			    <p><span class="title-footer">LIÊN HỆ</span></p><br/>
+			    <span>67 Ông ích đường, cẩm lệ, Đà nẵng</span>
+			    <span>tangsang11@gmail.com</span>
+			    <span>0763644168</span>
+			</div>
+			<div class="col-sm-4 col-md-4 wow animate__rubberBand">
+			   <p><span class="title-footer">GÓP Ý</span></p> <br/>
+			   <form action="" method="post">
+			    <input name="tennhanvien"class="material-textinput" style="margin-bottom: 8px;" type="text" placeholder="Email" /><br/>
+			   <textarea name="tuoi" rows="4" cols="30" style="margin-bottom: 8px;" placeholder="Nội Dung"></textarea>
+			   <button class="material-primary-button">ĐỒNG Ý</button>
+			   </form>
+			</div>
+		</div>
+	</div>		
+	<!--End Footer-->
+			
+<div th:replace="fragments/footer :: footer"></div>			
 </body>
 
 </html>
